@@ -3,16 +3,16 @@
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
-
-//тест номер: я сбился со счёта(
+    [SerializeField] float speed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        float hor = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(hor * speed, rb.velocity.y);
     }
 }
